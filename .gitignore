@@ -1,0 +1,11 @@
+﻿.vs/
+bin/
+obj/
+*.suo
+*.user
+[Dd]ebug/
+[Rr]elease/
+packages/
+TestResults/
+*.log
+*.tmp
