@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 namespace IndustrialMonitor
 {
+    /// <summary>
+    /// Главный класс системы мониторинга промышленного оборудования.
+    /// Реализует паттерн Observer для оповещения подписчиков о критических событиях.
+    /// </summary>
     public class MachineMonitor : IObservable
     {
         private readonly List<IObserver> _observers = new List<IObserver>();
@@ -34,6 +38,14 @@ namespace IndustrialMonitor
             }
         }
         // Методы проверки параметров
+        /// <summary>
+        /// Проверяет значение температуры и генерирует уведомление при превышении порога.
+        /// </summary>
+        /// <param name="value">Текущее значение температуры в градусах Цельсия</param>
+        /// <remarks>
+        /// Критическое значение задаётся константой CriticalTemperature (100.0°C).
+        /// При превышении вызывается метод Notify() для всех подписанных наблюдателей.
+        /// </remarks>
         public void CheckTemperature(double value)
         {
             Console.WriteLine($"[Датчик] Температура: {value}°C");
